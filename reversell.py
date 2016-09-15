@@ -42,16 +42,35 @@ def reverse_linked_list(head):
     >>> reverse_linked_list(ll).as_string()
     '321'
     """
-    new_head = None
-    current = head
+    
+    ## Iterative Solution ##
 
-    while current:
-        new_head = Node(current.data, new_head)
+    # new_head = None
+    # current = head
+
+    # while current:
+    #     new_head = Node(current.data, new_head)
+    #     current = current.next
+
+    # return new_head
+
+
+    ## Recursive Solution ###
+
+    if not head.next:
+        return head
+
+    reversed_ = reverse_linked_list(head.next)
+
+    current = reversed_
+    while current.next:
         current = current.next
 
-    return new_head
+    current.next = head
+    head.next = None
 
-
+    return reversed_
+    
 
 
 
