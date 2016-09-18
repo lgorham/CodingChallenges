@@ -47,13 +47,17 @@ def validate(s):
     if isinstance(s, int):
         return s == 0 or s == 1
 
+    # Base case - if it is not a list of 4, it is invalid
+
     if not isinstance(s, list) or len(s) != 4:
         return False
 
+    # Iterative case - check and ensure that all sublists fit the base case requiremetns
     for i in s:
         if not validate(i):
             return False
 
+    # If it makes it here - valid
     return True
 
 
