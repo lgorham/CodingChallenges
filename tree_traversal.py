@@ -10,7 +10,7 @@ class Node(object):
 def preOrder(root):
     """ Print out nodes of tree in depth first order, on one line"""
 
-    to_visit = []
+    to_visit = [root]
 
     while to_visit:
         current = to_visit.pop()
@@ -43,6 +43,7 @@ def inOrder(root):
     else:
         if root.left:
             inOrder(root.left)
+            
         print root.data,
         
         if root.right:
