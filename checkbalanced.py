@@ -89,13 +89,26 @@ class BinaryNode(object):
     def is_balanced(self):
         """Is the tree at this node balanced?"""
 
-        if not self:
-            return True
 
-        left = is_balanced(self.left)
-        right = is_balanced(self.right)
+        def _num_descendents(node):
+            """Returns number of descendents or none if imbalanced"""
 
-        return left == right
+            # Recursive case - if we've recursively called function on leaf node's 'left' and 'right'
+            if not node:
+                return 0
+
+            left = _num_descendents(node.left) + 1
+
+            right = _num_descendents(node.right) + 1
+
+
+            if abs(left - right) <= 1:
+                return abs(left - right)
+            
+            return False
+
+
+        return isinstance(_num_descendents(self), int)
 
 
 

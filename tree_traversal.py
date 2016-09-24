@@ -8,7 +8,9 @@ class Node(object):
 
 
 def preOrder(root):
-    """ Print out nodes of tree in depth first order, on one line"""
+    """ Visit the root node first, then recursively do a preOrder traversal
+    of left sub-tree, followed by a recursive preOrder traversal of the right
+    sub-tree, resulting in a depth first pattern"""
 
     to_visit = [root]
 
@@ -43,7 +45,7 @@ def inOrder(root):
     else:
         if root.left:
             inOrder(root.left)
-            
+
         print root.data,
         
         if root.right:
