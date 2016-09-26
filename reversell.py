@@ -45,32 +45,31 @@ def reverse_linked_list(head):
     
     ## Iterative Solution ##
 
-    # new_head = None
-    # current = head
+    new_head = None
+    current = head
 
-    # while current:
-    #     new_head = Node(current.data, new_head)
-    #     current = current.next
+    while current:
+        new_head = Node(current.data, new_head)
+        current = current.next
 
-    # return new_head
+    return new_head
 
 
     ## Recursive Solution ###
 
-    if not head.next:
-        return head
+    # if not head.next:
+    #     return head
 
-    reversed_ = reverse_linked_list(head.next)
+    # reversed_ = reverse_linked_list(head.next)
 
-    current = reversed_
-    while current.next:
-        current = current.next
+    # current = reversed_
+    # while current.next:
+    #     current = current.next
 
-    current.next = head
-    head.next = None
+    # current.next = head
+    # head.next = None
 
-    return reversed_
-    
+    # return reversed_
 
 
 
